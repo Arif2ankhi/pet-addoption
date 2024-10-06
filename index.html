@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peddy Website </title>
+    <!-- CSS link -->
+     <link rel="stylesheet" href="./styles/style.css">
     <!-- Google Font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,26 +25,26 @@
     <!-- navbar starts here -->
     <header class="" >
         <nav class=" w-full top-0 z-10">
-              <div class="flex items-center justify-between p-24">
-                <!-- Logo design -->
-                <div class="flex items-center ">
-                    <img src="./images/logo.webp" alt="" class="h-6 w-6 mr-2">
-                    <h2 class="font-extrabold text-2xl">Peddy</h2>
-                    </div>
-                    <!-- Navbar middle section -->
-                  <div class="flex gap-2 items-center space-x-4">
-                    <a class="link link-hover">Home</a>
-                    <a class="link link-hover">Shop</a>
-                    <a class="link link-hover">Contact</a>
-                </div>  
-                <!-- navbar icon -->
-                <div class="border-red-600 rounded-full">
-                    <i class="fa-regular fa-user border-gray-800 rounded"></i>
+            <div class="flex items-center justify-between p-4 md:p-8 lg:p-16">
+              <!-- Logo design -->
+              <div class="flex items-center ">
+                  <img src="./images/logo.webp" alt="" class="h-6 w-6 mr-2">
+                  <h2 class="font-extrabold text-2xl">Peddy</h2>
+                  </div>
+                  <!-- Navbar middle section -->
+                <div class="flex gap-2 items-center space-x-4">
+                  <a class="link link-hover">Home</a>
+                  <a class="link link-hover">Shop</a>
+                  <a class="link link-hover">Contact</a>
+              </div>  
+              <!-- navbar icon -->
+              <div class="bg-sky-200 text-black border-solid border-2 border-gray-300 px-2 py-1 rounded-full">
+                  <i class="fa-regular fa-user border-gray-800 rounded"></i>
 
-                </div>
               </div>
-            
-          </nav>
+            </div>
+          
+        </nav>
           <!-- navbar ends here -->
 
           <!-- Banners starts here  -->
@@ -70,7 +72,7 @@
   <!-- Header ends here -->
 
   <!-- main starts here -->
-  <main>
+  <main class="main">
     <!-- Adopt Best Friends section  -->
     <section>
     
@@ -94,7 +96,7 @@
   </main>
 
 <!-- Footer starts here  -->
-<footer class="bg-black mx-auto footer text-base-content text-white px-32 py-20 justify-between">
+<footer class="bg-black mx-auto footer text-base-content text-white p-12 md:p-16 lg:p-20 justify-between">
     <nav>
         <div class="flex items-center ">
             <img src="./images/logo.webp" alt="" class="h-6 w-6 mr-2">
@@ -134,6 +136,6 @@
 
 
 
-    <script src="./js/code.js"></script>
+    <script src="./script/code.js"></script>
 </body>
 </html>
