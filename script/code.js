@@ -19,6 +19,15 @@ const loadPets = () => {
     .then((data)=> displayPets(data.pets))
     .catch((error) => console.log(error));
 };
+
+const loadCategoryPets= (id) => {
+    alert(id);
+    fetch(`https://openapi.programming-hero.com/api/peddy/category/${id}`)
+    .then((res)=>res.json())
+    .then((data)=>console.log(data.category))
+    .catch((error) => console.log(error));
+}
+
 // Const cardDemo = {
 //     {
 //         petId: 8,
@@ -41,7 +50,7 @@ const displayPets = (pets) =>{
     pets.forEach(pet =>{
         console.log(pet);
         const card = document.createElement('div');
-        card.classList = "card card-compact";
+        card.classList = "card card-compact border-2 p-4";
         card.innerHTML= `
         <figure class="h-[200px]">
          <img
@@ -50,18 +59,22 @@ const displayPets = (pets) =>{
       alt="Shoes" />
     </figure>
     <div class="px-0 py-2">
-        <h2 class="font-bold">${pet.pet_name}</h2>
+        <h2 class="font-bold text-2xl">${pet.pet_name}</h2>
         <div class="gap-5"
-        <p class="xs"><i class="fa-regular fa-table"></i> Breed: ${pet.breed}</p>
-        <p class="xs"><i class="fa-solid fa-cake-candles"></i>
+        <p class="text-gray-500"><i class="fa-regular fa-table"></i> Breed: ${pet.breed}</p>
+        <p class="text-gray-500"><i class="fa-solid fa-cake-candles"></i>
          Birth : ${pet.date_of_birth?pet.date_of_birth:'Date of Birth not available'}</p>
-         <p class="xs"><i class="fa-solid fa-mercury"></i> Gender: ${pet.gender}</p>
-         <p class="xs"><i class="fa-regular fa-dollar-sign"></i> Price: ${pet.price}</p>
+         <p class="text-gray-500"><i class="fa-solid fa-mercury"></i> Gender: ${pet.gender}</p>
+         <p class="text-gray-500"><i class="fa-regular fa-dollar-sign"></i> Price: ${pet.price}</p>
+         <div class="divider"></div>
 
+        <div class="card-action justify between item center space-x-12">
+        <i class="fa-regular fa-thumbs-up"></i>
+        <button  class="btn">Adopt</button>
+        <button class="class="btn bg-[#FFFFFF] text-[#0E7A81]" onclick="loadDetails(${pet.petId})">Details</button>
 
-
-
-        
+         </div>
+            
   </div>
         `;
         petsContainer.append(card);
@@ -71,7 +84,7 @@ const displayPets = (pets) =>{
 };
 
 
-
+{/* <button  class="btn bg-[#FFFFFF] text-[#0E7A81]">Details</button></button> */}
 
 
 
@@ -90,13 +103,20 @@ const displayCategories = (categories) => {
         console.log(item);
 
         // create a button
-        const button = document.createElement('button');
-        button.classList = 'btn';
-        button.innerHTML =item.category;
+        const buttonContainer = document.createElement('div');
+        buttonContainer.innerHTML =
+        `
+        <button onclick="loadCategoryPets(${item.id})"class="btn">
+        ${item.category}
+        </button>
+        `;
+        // button.classList = 'btn';
+        // button.innerHTML =item.category;
+      
 
 
         // add button to category container
-        categoryContainer.append(button);
+        categoryContainer.append(buttonContainer);
         
     });
 };
@@ -106,3 +126,4 @@ const displayCategories = (categories) => {
 
 loadCategories();
 loadPets();
+
