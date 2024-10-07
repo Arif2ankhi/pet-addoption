@@ -46,11 +46,21 @@ const displayPets = (pets) =>{
         <figure class="h-[200px]">
          <img
       src=${pet.image}
-      class="h-full w-full object-cover"
+      class="h-full w-full object-cover rounded-md"
       alt="Shoes" />
     </figure>
     <div class="px-0 py-2">
         <h2 class="font-bold">${pet.pet_name}</h2>
+        <div class="gap-5"
+        <p class="xs"><i class="fa-regular fa-table"></i> Breed: ${pet.breed}</p>
+        <p class="xs"><i class="fa-solid fa-cake-candles"></i>
+         Birth : ${pet.date_of_birth?pet.date_of_birth:'Date of Birth not available'}</p>
+         <p class="xs"><i class="fa-solid fa-mercury"></i> Gender: ${pet.gender}</p>
+         <p class="xs"><i class="fa-regular fa-dollar-sign"></i> Price: ${pet.price}</p>
+
+
+
+
         
   </div>
         `;
@@ -59,6 +69,7 @@ const displayPets = (pets) =>{
     })
 
 };
+
 
 
 
