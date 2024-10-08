@@ -59,7 +59,10 @@
                 <p>A pet is a loyal companion, always there to offer unconditional love.
                     They bring joy, laughter, and a sense of purpose to our lives.
                     A pet is more than just an animal; they are a member of the family.</p>
-                <button id="view-more" class="btn bg-[#0E7A81] text-[#FFFFFF] mt-2">View More</button>
+                    <a href="#connectViewMore" class="btn bg-[#0E7A81] text-[#FFFFFF] mt-2">View More</a>
+
+                    <!-- <button id="" class="btn bg-[#0E7A81] text-[#FFFFFF] mt-2">View More</button> -->
+                <!-- <button id="" class="btn bg-[#0E7A81] text-[#FFFFFF] mt-2">View More</button> -->
               </div>
               
             </div>
@@ -76,24 +79,38 @@
     <!-- Adopt Best Friends section  -->
     <section>
     
-    <div class="mx-auto text-center  mb-2">
+    <div id="connectViewMore" class="mx-auto text-center  mb-2">
         <h3 class="font-bold text-4xl">Adopt  Your  Best Friend</h3>
         <p>It is nice to having a pet. A lovely pet is a very good companion. Pest are very faithful, sometimes they are a  source of entertainment</p>
     </div>
 
-    <nav id="categories" class="p-3 flex gap-5 justify-evenly"></nav>
+    <div id="btnPet" class="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-items-center mt-6 font-[inter]"> </div>
+               <div class="mt-7 md:flex text-center  justify-between items-center px-20">
+                <h3 class="font-bold text-2xl">Best Deal For You</h3>
+                <button onclick="sortPrice()" class="btn bg-[#0E7A81] text-[#FFFFFF] mt-2">Sort by Price</button>
+
+        </div> 
     </section>
-
-    <!-- Best Deals section  -->
-    <section>
-        <div class="flex items-center justify-between gap-5 p-10">
-            <h4 class="font-bold text-4xl">Best Deal For You</h4>
-            <button id="sort-by-price" class="btn bg-[#0E7A81] text-[#FFFFFF] mt-2">Sort by Price</button>
-
+    <!-- spinning section -->
+    <div class="flex text-center justify-center">
+      <span class="loading loading-bars hidden loading-lg" id="spinning"></span>
+     
+    
+       <!-- card container  -->
+       <section class=" mx-auto md:grid md:grid-cols-5 mt-4">
+        <div class=" md:col-span-4">
+          <div class="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 " id="card-container">
+          </div>
         </div>
-    </section>
+      
+        <div id="aa" class=" md:col-span-1 my-2 md:mt-0 rounded-lg" style="box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
+          <div id="newSection" class="rounded-xl grid grid-cols-2 justify-between gap-2 p-2">
+         
+          </div>
 
-    <section class="w-11/12 mx-auto grid grid-cols-12 border rounded-lg">
+      </section>
+
+    <!-- <section class="w-11/12 mx-auto grid grid-cols-12 border rounded-lg">
    <div class="col-span-8">
     <div id="pets" class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
@@ -104,14 +121,26 @@
 
    </div>
 
-    </section>
-
+    </section> -->
+    <dialog id="my_modal_2" class="modal">
+      <div class="modal-box">
+        <p class="py-2 text-center font-extrabold text-7xl"><i class="fa-regular fa-handshake"></i>!</p>
+        <!-- need to find an image for modal -->
+        <div class="flex justify-center"><img src="images/images.jpeg" alt=""></div>
+        <p class="py-2 text-center font-bold text-2xl">Adoption process is start for your pet</p>
+        <h3 id="count" class="text-center font-extrabold text-4xl">3</h3>
+        <div class="modal-action">
+        </div>
+      </div>
+    </dialog>
+    <!-- show modal -->
+    <div id="modal-Container"></div>  
 
 
   </main>
 
 <!-- Footer starts here  -->
-<footer class="bg-black mx-auto footer text-base-content text-white p-12 md:p-16 lg:p-20 justify-between">
+<footer class="bg-black mx-auto footer text-base-content text-white p-12 md:p-16 lg:p-20 justify-between mt-4">
     <nav>
         <div class="flex items-center ">
             <img src="./images/logo.webp" alt="" class="h-6 w-6 mr-2">
@@ -151,6 +180,7 @@
 
 
 
-    <script src="./script/code.js"></script>
+    <!-- <script src="./script/code.js"></script> -->
+    <script src="./script/index.js"></script>
 </body>
 </html>

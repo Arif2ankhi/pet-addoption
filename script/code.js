@@ -3,7 +3,7 @@ console.log('coding');
 //  categories 
 
 // create categories
-const loadCategories = () => {
+const loadCategories =  () => {
     // fetch the data
     fetch('https://openapi.programming-hero.com/api/peddy/categories')
     .then((res)=>res.json())
