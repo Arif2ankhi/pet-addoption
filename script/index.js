@@ -1,14 +1,9 @@
-  const allButtons = async() =>{
-  const res =await fetch(`https://openapi.programming-hero.com/api/peddy/categories`)
-  const pett = await res.json();
-  displayButton(pett.categories)
-}
 const displayButton = (pets) => {
   pets.forEach(pet => {
     const btnSection = document.getElementById('btnPet')
     const newButton = document.createElement('div')
     newButton.innerHTML =`
-    <button id="btn-${pet?.category || 'defaultCategory'}" onclick="categoryName('${pet?.category || 'defaultCategory'}')" 
+    <button id="btn-${pet?.category || 'categories'}" onclick="categoryName('${pet?.category || 'categories'}')" 
     class="btn category-btn">
     
     <img class="w-8" src="${pet.category_icon}" alt="">
@@ -19,6 +14,29 @@ const displayButton = (pets) => {
   
   });
 }
+
+
+const allButtons = async() =>{
+  const res =await fetch(`https://openapi.programming-hero.com/api/peddy/categories`)
+  const pett = await res.json();
+  displayButton(pett.categories)
+}
+// const displayButton = (pets) => {
+//   pets.forEach(pet => {
+//     const btnSection = document.getElementById('btnPet')
+//     const newButton = document.createElement('div')
+//     newButton.innerHTML =`
+//     <button id="btn-${pet?.category || 'categories'}" onclick="categoryName('${pet?.category || 'categories'}')" 
+//     class="btn category-btn">
+    
+//     <img class="w-8" src="${pet.category_icon}" alt="">
+//     ${pet.category}
+// </button>
+//     `
+//     btnSection.append(newButton)
+  
+//   });
+// }
 
 const categoryName = (categoryname) => {
                                                                                                                                                                    
@@ -52,10 +70,10 @@ const removeBtnBg =() =>{
    }
 }
 
-const showAnimal = async () => {
+const displayPets = async () => {
   const response = await fetch(`https://openapi.programming-hero.com/api/peddy/pets`);
   const pett = await response.json();
-  displayCards(pett.pets);  // Pass the 'pets' array to displayCards
+  displayCards(pett.pets); 
 }
 
 const displayCards = (cards) => {
@@ -66,8 +84,11 @@ if(cards.length == 0){
   cardContainer.innerHTML =`
   <div class=" min-h-[300px] flex flex-col gap-5 justify-center items-center">
   <img src="./images/error.webp" alt="">
-  <h2 class="font-bold text-xl text-center">No Information Available</h2>
-  <p class="text-[gray] w-2/3 text-center">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+  <h2 class="text-[#0E7A81] font-bold text-xl text-center">No Information Available</h2>
+  <p class="text-[black] w-2/3 text-center">A furry friend, a loyal heart, A constant joy, from the very start.
+Playful paws, a wagging tail, A loving pet, that will never fail.
+A comforting presence, a gentle touch, A pet's love is truly so much.
+Whether big or small, they bring such cheer, A pet's companionship is always near.</p>
   </div>
   `
 }else{
@@ -111,15 +132,16 @@ if(cards.length == 0){
   });
 }
 
-const createNewPart = (imagee) => {
+const createNewPart = (image) => {
   const createNEWSection = document.getElementById('newSection')
   const div = document.createElement('div')
   div.innerHTML=`
-  <img class="rounded-md" src="${imagee}" alt="" />
+  <img class="rounded-md" src="${image}" alt="" />
   ` 
   createNEWSection.append(div)
 }
-// ---------------------------------------------------------------------
+
+/*Modal Section */
 const createModal = async(petId)=>{
   console.log(petId)
       const res = await fetch (`https://openapi.programming-hero.com/api/peddy/pet/${petId}`)
@@ -166,7 +188,7 @@ const MODAL = (details) =>{
       <p>${pet_details}</p>
     <div id="modalBtn" class="text-center  mt-2 mx-auto ">
       <form method="dialog">
-        <div><button class="text-red-300 border-2 border-solid border-[#0E7A81] rounded-lg w-full text-2xl font-bold py-3">Close</button></div>
+        <div><button class="text-red-300 border-2 border-solid border-[#0E7A81] rounded-lg w-full text-2xl font-bold py-3">X</button></div>
       </form>
     </div>
   </div>
@@ -208,6 +230,23 @@ const displaySort = (pets) => {
   displayCards(sortedPets)
 
 }
-showAnimal()
+displayPets()
 // btnAllSection()
 allButtons()
+
+
+
+// API for reference 
+
+// {
+//   "petId": 7,
+//   "breed": "Bengal",
+//   "category": "Cat",
+//   "date_of_birth": "2022-11-10",
+//   "price": 950,
+//   "image": "https://i.ibb.co.com/QXbXctF/pet-7.jpg",
+//   "gender": "Male",
+//   "pet_details": "This male Bengal cat, born on November 10, 2022, is energetic and playful. He loves exploring, climbing, and playing with interactive toys. Fully vaccinated and priced at $950, he's perfect for anyone looking for an active, intelligent, and lively cat.",
+//   "vaccinated_status": null,
+//   "pet_name": "Max"
+// },
