@@ -124,15 +124,14 @@ const createNewPart = (image) => {
   ` 
   rightCardSection.append(div)
 }
-
-/*Modal Section */
+// modal
 const createModal = async(petId)=>{
   console.log(petId)
       const res = await fetch (`https://openapi.programming-hero.com/api/peddy/pet/${petId}`)
       const data = await res.json()
       MODAL(data.petData)
 }
-// create a modal
+// create  details modal
 const MODAL = (details) =>{
   const {breed,petId,category,date_of_birth,price,image,gender,pet_details,vaccinated_status,pet_name,}= details;
   const modalContainer = document.getElementById('modal-Container')
@@ -180,7 +179,7 @@ const MODAL = (details) =>{
   `
 my_modal_1.showModal()
 }
-// create congratulations Button
+//  congratulations section
 const Congratulations = (petId) =>{
   my_modal_2.showModal()
   const countContainer = document.getElementById('count');
@@ -216,7 +215,6 @@ const displaySort = (pets) => {
 }
 
 displayPets()
-// btnAllSection()
 allButtons()
 
 
@@ -235,3 +233,4 @@ allButtons()
 //   "vaccinated_status": null,
 //   "pet_name": "Max"
 // },
+
