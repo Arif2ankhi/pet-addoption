@@ -15,34 +15,18 @@ const displayButton = (pets) => {
   });
 }
 
-
 const allButtons = async() =>{
   const res =await fetch(`https://openapi.programming-hero.com/api/peddy/categories`)
   const pett = await res.json();
   displayButton(pett.categories)
 }
-// const displayButton = (pets) => {
-//   pets.forEach(pet => {
-//     const btnSection = document.getElementById('btnPet')
-//     const newButton = document.createElement('div')
-//     newButton.innerHTML =`
-//     <button id="btn-${pet?.category || 'categories'}" onclick="categoryName('${pet?.category || 'categories'}')" 
-//     class="btn category-btn">
-    
-//     <img class="w-8" src="${pet.category_icon}" alt="">
-//     ${pet.category}
-// </button>
-//     `
-//     btnSection.append(newButton)
-  
-//   });
-// }
+
 
 const categoryName = (categoryname) => {
                                                                                                                                                                    
   document.getElementById('spinning').classList.remove('hidden')
   document.getElementById('card-container').classList.add('hidden')
-  document.getElementById('aa').classList.add('hidden')
+  document.getElementById('right-container').classList.add('hidden')
 
 
   
@@ -59,7 +43,7 @@ const categoryName = (categoryname) => {
     .catch((error) => console.log(error)) 
     document.getElementById('spinning').classList.add('hidden')
     document.getElementById('card-container').classList.remove('hidden')
-    document.getElementById('aa').classList.remove('hidden')
+    document.getElementById('right-container').classList.remove('hidden')
  
   },1500);
 }
@@ -114,7 +98,7 @@ Whether big or small, they bring such cheer, A pet's companionship is always nea
              <i class="fa-solid fa-venus mr-2"></i> Gender: ${gender?gender: "Not Available"}
            </p>
            <p class="text-start text-base font-normal text-[#868282]">
-             <i class="fa-solid fa-dollar-sign mr-2"></i> Price: ${price?price: ""}
+             <i class="fa-solid fa-dollar-sign mr-2"></i> Price: ${price?price: "Not Available"}
            </p>
            <hr class="w-full" />
            <div class="card-actions grid grid-cols-3 gap-2 mt-2">
@@ -133,12 +117,12 @@ Whether big or small, they bring such cheer, A pet's companionship is always nea
 }
 
 const createNewPart = (image) => {
-  const createNEWSection = document.getElementById('newSection')
+  const rightCardSection = document.getElementById('newSection')
   const div = document.createElement('div')
   div.innerHTML=`
   <img class="rounded-md" src="${image}" alt="" />
   ` 
-  createNEWSection.append(div)
+  rightCardSection.append(div)
 }
 
 /*Modal Section */
@@ -230,6 +214,7 @@ const displaySort = (pets) => {
   displayCards(sortedPets)
 
 }
+
 displayPets()
 // btnAllSection()
 allButtons()
