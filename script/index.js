@@ -169,7 +169,7 @@ my_modal_1.showModal()
 //  congratulations section
 const Congratulations = (petId) =>{
   my_modal_2.showModal()
-  const countContainer = document.getElementById('count');
+  const countContainer = document.getElementById('countdown');
   let count = 3;
   const intervalId = setInterval(() => {
     count--;
