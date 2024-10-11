@@ -22,22 +22,15 @@ const allButtons = async() =>{
 }
 
 
-const categoryName = (categoryname) => {
+const categoryName = (ctgName) => {
                                                                                                                                                                    
   document.getElementById('spinning').classList.remove('hidden')
   document.getElementById('card-container').classList.add('hidden')
   document.getElementById('right-container').classList.add('hidden')
 
 
-  
-    removeBtnBg()
-    const activeBtn = document.getElementById(`btn-${categoryname}`); 
-    activeBtn.classList.add('active')
-    
-    
-
   setTimeout(() => {
-    fetch(`https://openapi.programming-hero.com/api/peddy/category/${categoryname}`)
+    fetch(`https://openapi.programming-hero.com/api/peddy/category/${ctgName}`)
     .then((res) => res.json())
     .then((pett) => displayCards(pett.data))
     .catch((error) => console.log(error)) 
@@ -45,13 +38,7 @@ const categoryName = (categoryname) => {
     document.getElementById('card-container').classList.remove('hidden')
     document.getElementById('right-container').classList.remove('hidden')
  
-  },1500);
-}
-const removeBtnBg =() =>{
-  const btns = document.getElementsByClassName('category-btn')
-  for(let btn of btns){
-  btn.classList.remove('active')
-   }
+  },2000);
 }
 
 const displayPets = async () => {
@@ -199,6 +186,23 @@ const Congratulations = (petId) =>{
   }, 1000);
   
 
+  // API for reference 
+
+// {
+//   "petId": 7,
+//   "breed": "Bengal",
+//   "category": "Cat",
+//   "date_of_birth": "2022-11-10",
+//   "price": 950,
+//   "image": "https://i.ibb.co.com/QXbXctF/pet-7.jpg",
+//   "gender": "Male",
+//   "pet_details": "This male Bengal cat, born on November 10, 2022, is energetic and playful. He loves exploring, climbing, and playing with interactive toys. Fully vaccinated and priced at $950, he's perfect for anyone looking for an active, intelligent, and lively cat.",
+//   "vaccinated_status": null,
+//   "pet_name": "Max"
+// },
+
+
+
 
 }
 const sortPrice =async() =>{
@@ -217,20 +221,4 @@ const displaySort = (pets) => {
 displayPets()
 allButtons()
 
-
-
-// API for reference 
-
-// {
-//   "petId": 7,
-//   "breed": "Bengal",
-//   "category": "Cat",
-//   "date_of_birth": "2022-11-10",
-//   "price": 950,
-//   "image": "https://i.ibb.co.com/QXbXctF/pet-7.jpg",
-//   "gender": "Male",
-//   "pet_details": "This male Bengal cat, born on November 10, 2022, is energetic and playful. He loves exploring, climbing, and playing with interactive toys. Fully vaccinated and priced at $950, he's perfect for anyone looking for an active, intelligent, and lively cat.",
-//   "vaccinated_status": null,
-//   "pet_name": "Max"
-// },
 
