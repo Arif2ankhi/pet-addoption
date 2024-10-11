@@ -94,7 +94,11 @@ There is a short button for the customer to choose the pet by their prices.
 
 ---
 
-Last but not least a beautiful read.Me file has breed added with the main project .
+Last but not least a beautiful README.md file has breed added with the main project .
+
+---
+
+Thank you very much. 
 
 ---
 
